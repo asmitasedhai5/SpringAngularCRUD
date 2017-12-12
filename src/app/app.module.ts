@@ -7,13 +7,15 @@ import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app.routing-module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { UserService } from './user/user.service';
+import { EmployeeComponent } from './Employee/employee.component';
+import { EmployeeService } from './Employee/employee.service';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    EmployeeComponent,
     DashboardComponent
   ],
   imports: [
@@ -22,7 +24,7 @@ import { UserService } from './user/user.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

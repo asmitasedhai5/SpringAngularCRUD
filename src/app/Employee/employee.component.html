@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="col-md-12">
+    <h1>User List</h1>
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+      <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let emp of emps">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+       <td>
+          <button class="btn btn-info" (click)="showEditForm(emp)">
+            Edit
+              </button>
+          <button class="btn btn-danger" (click)="removeUser(emp.id)">
+                Delete
+            </button>
+        </td>
+      </tr>
+      
+      </tbody>
+    </table>
+   <button class="btn btn-success" (click)="showAddForm()">Add Employee</button>
+    <br />
+    <br />
+
+    <form *ngIf="userForm">
+    <h2>New User</h2>
+    <p>ID: <input type="text" name="id" [(ngModel)]="emp.id" /></p>
+    <p>Name: <input type="text" name="name" [(ngModel)]="emp.name" /></p>
+    <p>
+      <button type="button" class="btn btn-primary" (click)="addUser(emp)">Submit</button>
+    </p>
+   </form>
+    
+    <form *ngIf="editUserForm">
+    <h2>Edit User Details</h2>
+    <p>ID: <input type="text" name="id" [(ngModel)]="emp.id"/></p>
+    <p>Name: <input type="text" name="name" [(ngModel)]="emp.name"/></p>
+    <p>
+      <button type="button" class="btn btn-primary" (click)="updateUser(emp)">Submit</button>
+    </p>
+   </form>
+  </div>
+</div>
